@@ -29,7 +29,7 @@ import az.course.courseproject.response.StudentResponse;
 import az.course.courseproject.service.StudentService;
 
 @RestController
-@RequestMapping(path = "/students")
+@RequestMapping(path = "/student")
 @CrossOrigin(origins = "*")
 public class StudentRestController {
 
