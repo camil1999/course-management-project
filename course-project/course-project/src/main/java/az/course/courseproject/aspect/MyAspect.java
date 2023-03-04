@@ -1,4 +1,4 @@
-package az.course.courseproject;
+package az.course.courseproject.aspect;
 
 import org.aspectj.lang.JoinPoint;
 import org.aspectj.lang.annotation.Aspect;

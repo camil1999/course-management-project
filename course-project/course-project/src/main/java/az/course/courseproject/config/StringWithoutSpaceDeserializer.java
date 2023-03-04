@@ -1,4 +1,4 @@
-package az.course.courseproject;
+package az.course.courseproject.config;
 
 import java.io.IOException;
 
