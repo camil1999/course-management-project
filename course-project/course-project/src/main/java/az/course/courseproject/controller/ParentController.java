@@ -58,7 +58,7 @@ public class ParentController {
 		return filter(parent, "parent", "id", "name", "surname");
 	}
 
-	@PutMapping
+	@PutMapping(path = "/{id}")
 	@PreAuthorize(value = "hasAuthority('edit:parent')")
 	public void editParent(@Valid @PathVariable Integer id, @RequestBody ParentRequest parentRequest,
 			BindingResult result) {
@@ -72,6 +72,10 @@ public class ParentController {
 	@PreAuthorize(value = "hasAuthority('delete:parent')")
 	public void deleteById(@PathVariable Integer id) {
 		parentService.deleteById(id);
+	}
+	@PostMapping(path = "/login")
+	public void login() {
+
 	}
 
 	public MappingJacksonValue filter(Object data, String dto, String... fields) {

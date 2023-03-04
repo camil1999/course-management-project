@@ -45,7 +45,7 @@ public class StudentRestController {
 		studentService.save(studentRequest);
 	}
 
-	@PutMapping
+	@PutMapping(path = "/{id}")
 	@PreAuthorize(value = "hasAuthority('edit:student')")
 	public void editStudent(@Valid @PathVariable Integer id, @RequestBody StudentRequest studentRequest,
 			BindingResult result) {
@@ -79,8 +79,12 @@ public class StudentRestController {
 	@GetMapping(path = "/search")
 	@PreAuthorize(value = "hasAuthority('search:student')")
 	public MappingJacksonValue findSearch(@RequestParam String name, @RequestParam String surname) {
-		List<StudentResponse> students = studentService.findSearch(name,surname);
+		List<StudentResponse> students = studentService.findSearch(name, surname);
 		return filter(students, "student", "id", "name", "surname");
+	}
+
+	@PostMapping(path = "/login")
+	public void login() {
 	}
 
 	public MappingJacksonValue filter(Object data, String dto, String... fields) {

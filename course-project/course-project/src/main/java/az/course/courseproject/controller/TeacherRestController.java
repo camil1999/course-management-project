@@ -28,7 +28,7 @@ import az.course.courseproject.response.TeacherResponse;
 import az.course.courseproject.service.TeacherService;
 
 @RestController
-@RequestMapping(path = "/teachers")
+@RequestMapping(path = "/teacher")
 @CrossOrigin(origins = "*")
 public class TeacherRestController {
 
@@ -60,7 +60,7 @@ public class TeacherRestController {
 		return filter(teacherResponse, "teacher", "id", "name", "surname");
 	}
 
-	@PutMapping
+	@PutMapping(path = "/{id}")
 	@PreAuthorize(value = "hasAuthority('edit:teacher')")
 	public void editTeacher(@Valid @PathVariable Integer id, @RequestBody TeacherRequest teacherRequest,
 			BindingResult result) {
@@ -74,6 +74,10 @@ public class TeacherRestController {
 	@PreAuthorize(value = "hasAuthority('delete:teacher')")
 	public void deleteById(@PathVariable Integer id) {
 		teacherService.deleteById(id);
+	}
+	@PostMapping(path = "/login")
+	public void login() {
+
 	}
 
 	public MappingJacksonValue filter(Object data, String dto, String... fields) {

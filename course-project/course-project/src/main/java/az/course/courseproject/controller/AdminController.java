@@ -28,7 +28,7 @@ import az.course.courseproject.response.AdminResponse;
 import az.course.courseproject.service.AdminService;
 
 @RestController
-@RequestMapping(path = "/admins")
+@RequestMapping(path = "/admin")
 @CrossOrigin(origins = "*")
 public class AdminController {
 
@@ -76,6 +76,10 @@ public class AdminController {
 			throw new MyValidationException(result);
 		}
 		adminService.editAdmin(id, adminRequest);
+
+	}
+	@PostMapping(path = "/login")
+	public void login() {
 
 	}
 

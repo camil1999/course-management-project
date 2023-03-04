@@ -22,7 +22,7 @@ import az.course.courseproject.response.StudentNoteResponse;
 import az.course.courseproject.service.StudentNoteRestService;
 
 @RestController
-@RequestMapping(path = "/student-notes")
+@RequestMapping(path = "/student-note")
 @CrossOrigin(origins = "*")
 public class StudentNoteRestController {
 

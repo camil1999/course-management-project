@@ -65,7 +65,7 @@ public class TrainingController {
 		return filter(training, "training", "name", "price", "period");
 	}
 
-	@PutMapping
+	@PutMapping(path = "/{id}")
 	@PreAuthorize(value = "hasAuthority('edit:training')")
 	public void editTraining(@Valid @PathVariable Integer id, @RequestBody TrainingRequest trainingRequest,
 			BindingResult result) {

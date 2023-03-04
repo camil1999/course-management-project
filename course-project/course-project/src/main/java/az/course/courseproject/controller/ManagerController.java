@@ -28,7 +28,7 @@ import az.course.courseproject.response.ManagerResponse;
 import az.course.courseproject.service.ManagerService;
 
 @RestController
-@RequestMapping(path = "/managers")
+@RequestMapping(path = "/manager")
 @CrossOrigin(origins = "*")
 public class ManagerController {
 
@@ -59,7 +59,7 @@ public class ManagerController {
 		return filter(managerResponse, "manager", "id", "name", "surname");
 	}
 
-	@PutMapping
+	@PutMapping(path = "/{id}")
 	@PreAuthorize(value = "hasAuthority('edit:manager')")
 	public void editManager(@Valid @PathVariable Integer id, @RequestBody ManagerRequest managerRequest, BindingResult result) {
 		if (result.hasErrors()) {
@@ -72,6 +72,10 @@ public class ManagerController {
 	@PreAuthorize(value = "hasAuthority('delete:manager')")
 	public void deleteById(@PathVariable Integer id) {
 		managerService.deleteById(id);
+	}
+	@PostMapping(path = "/login")
+	public void login() {
+
 	}
 
 	public MappingJacksonValue filter(Object data, String dto, String... fields) {

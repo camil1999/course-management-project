@@ -28,7 +28,7 @@ import az.course.courseproject.response.GroupResponse;
 import az.course.courseproject.service.GroupService;
 
 @RestController
-@RequestMapping(path = "/groups")
+@RequestMapping(path = "/group")
 @CrossOrigin(origins = "*")
 public class GroupController {
 
@@ -61,7 +61,7 @@ public class GroupController {
 
 	}
 
-	@PutMapping
+	@PutMapping(path = "/{id}")
 	@PreAuthorize(value = "hasAuthority('edit:group')")
 	public void editGroupv(@Valid @PathVariable Integer id, @RequestBody GroupRequest groupRequest,
 			BindingResult result) {
