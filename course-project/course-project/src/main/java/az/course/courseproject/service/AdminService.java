@@ -68,7 +68,7 @@ public class AdminService {
 		Admin currentAdmin = adminRepository.findByUsername(getUsername());
 		admin.setCourseId(currentAdmin.getCourseId());
 		adminRepository.save(admin);
-
+		
 		User user = new User();
 		user.setUsername(adminRequest.getUsername());
 		user.setPassword("{bcrypt}" + encoder.encode(adminRequest.getPassword()));

@@ -2,14 +2,9 @@ package az.course.courseproject.response;
 
 import com.fasterxml.jackson.annotation.JsonFilter;
 
-import lombok.Data;
+import az.course.courseproject.model.Person;
 
-@Data
 @JsonFilter(value = "admin")
-public class AdminResponse {
-
-	private String name;
-
-	private String surname;
+public class AdminResponse extends Person {
 
 }

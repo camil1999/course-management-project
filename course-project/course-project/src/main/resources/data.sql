@@ -1,7 +1,7 @@
 
 insert into courses (course_name, username, course_status)
 values
-('Developia', 'admin',0),
+('Developia', 'admin',1),
 ('Yeni kurs', 'yeni', 1);
 
 
